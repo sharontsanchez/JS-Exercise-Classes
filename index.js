@@ -177,8 +177,8 @@ class Instructor extends Lambdasian {
     demo(subject){
       return `Today we are learning about ${subject}`;
     }
-    grade(student, subject){
-      return `${student.name} receives a perfect score on ${subject}`;
+    grade(studentOne, subject){
+      return `${studentOne.name} receives a perfect score on ${subject}`;
     }
   }
 // create an object by invoking the functions
@@ -190,13 +190,13 @@ const brit = new Instructor({
   favLanguage: 'HTML, CSS and JavaScript',
   catchPhrase: 'Dont forget the homies'
 });
-const student = {
+const studentOne = {
   name: 'Sharon Sanchez'
 };
 
 console.log(brit);
 console.log(brit.demo('JavaScript'));
-console.log(brit.grade(student,'JavaScript'));
+console.log(brit.grade(studentOne,'JavaScript'));
 
 /*
   TASK 5
@@ -233,7 +233,7 @@ class Student extends Lambdasian{
 }
 // create an object 
 
-const studentOne = new Student({
+const studentTwo = new Student({
   name: 'Sharon Sanchez',
   age: 30,
   location: 'Kerala,India',
@@ -242,13 +242,13 @@ const studentOne = new Student({
   favSubjects: 'HTML, CSS, JS!'
 });
 // speak method 
-console.log(studentOne.speak());
+console.log(studentTwo.speak());
 // listSubjects method
-console.log(studentOne.listSubjects());
+console.log(studentTwo.listSubjects());
 // PRAssignment method
-console.log(studentOne.PRAssignment('JavaScript'));
+console.log(studentTwo.PRAssignment('JavaScript'));
 // Sprint Challenge method 
-console.log(studentOne.sprintChallenge('JavaScript'));
+console.log(studentTwo.sprintChallenge('JavaScript'));
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor. // grandchild 
@@ -277,26 +277,31 @@ class ProjectManager extends Instructor{
     return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
 }
-// // create an object 
-// const joel = new ProjectManager({
-//   name: 'Joel',
-//   age: 20,
-//   location: 'Portland, Oregon',
-//   specialty: 'Web Design',
-//   favLanguage: 'HTML, CSS and JavaScript',
-//   catchPhrase: 'Dont forget the homies',
-//   gradClassName: 'Lambda',
-//   favInstructor: 'Brit Hemming'
-// });
+// create an object 
+const joel = new ProjectManager({
+  name: 'Joel',
+  age: 20,
+  location: 'Portland, Oregon',
+  specialty: 'Web Design',
+  favLanguage: 'HTML, CSS and JavaScript',
+  catchPhrase: 'Dont forget the homies',
+  gradClassName: 'Lambda',
+  favInstructor: 'Brit Hemming'
+});
 
-// // let student = {
-// //   name:'Michael',
-// // };
-// console.log(joel.speak());
-// console.log(joel.demo());
-// console.log(joel.grade());
-// console.log(joel.standUp('slack channel'));
-// console.log(joel.debugsCode(student,'JavaScript'));
+let student = {
+  name:'Michael',
+};
+// speak method 
+console.log(joel.speak());
+// demo method
+console.log(joel.demo('JavaScript'));
+// grade method 
+console.log(joel.grade(studentOne,'JavaScript'));
+// standup method
+console.log(joel.standUp('slack channel'));
+// debugcode method
+console.log(joel.debugsCode(student,'JavaScript'));
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
